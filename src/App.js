@@ -8,10 +8,13 @@ import "./App.css";
  * 값 추가, 값 불러오기, 초기화, 값 하나 삭제
  * 1) 값 추가
  * localStorage.setItem(key, value);
+ *
  * 2) 값 불러오기
  * localStorage.getItem(key);
+ *
  * 3) 초기화
  * localStorage.clear();
+ *
  * 4) 값 하나 삭제
  * localStorage.removeItem(key);
  *
@@ -19,6 +22,7 @@ import "./App.css";
  */
 
 function App() {
+  let localname = localStorage.getItem("name");
   const [name, setName] = useState("");
   return (
     <div className="App">
@@ -46,6 +50,14 @@ function App() {
       >
         이름 불러오기
       </button>
+      <button
+        onClick={() => {
+          localStorage.clear();
+        }}
+      >
+        전부 삭제하기
+      </button>
+      <h2>{localname}</h2>
     </div>
   );
 }
